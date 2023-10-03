@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-
-
+const axios = require('axios');
+const proxy = require('express-http-proxy');
 app.use("/",(req,res,next)=>{
-    console.log('origin ',req.header('Origin'));
-    console.log('host ',req.header('Host'));
+    const host = req.header('Host');
+    if(host == 'upay-dev.seedbox.ph'){
+        return proxy('http://localhost:9324')(req,res,next)
+    }
 });
 
 
