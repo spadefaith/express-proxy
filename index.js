@@ -7,7 +7,7 @@ app.use("/",(req,res,next)=>{
     console.log('host ',req.header('Host'));
 });
 
-app.listen(80,"0.0.0.0",(err)=>{
+app.listen(80,(err)=>{
     if(err){
         return console.log('app failed to start ',err);
     };
