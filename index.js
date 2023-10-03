@@ -14,7 +14,7 @@ require("greenlock-express")
         configDir: "./greenlock.d",
  
         // contact for security and critical bug notices
-        maintainerEmail: "jon@example.com",
+        maintainerEmail: "cedrick.campoto@seedbox.ph",
  
         // whether or not to run at cloudscale
         cluster: false
