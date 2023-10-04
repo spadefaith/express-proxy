@@ -5,6 +5,7 @@ const proxy = require('express-http-proxy');
 const GreenlockExpress =require("greenlock-express");
 app.use("/",(req,res,next)=>{
     const host = req.header('Host');
+    console.log(8,host);
     if(host == 'upay-dev.seedbox.ph'){
         return proxy('http://localhost:9324')(req,res,next)
     } else if (host == "standalone-proxy-dev.seedbox.ph"){
