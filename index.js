@@ -9,6 +9,8 @@ app.use("/",(req,res,next)=>{
         return proxy('http://localhost:9324')(req,res,next)
     } else if (host == "standalone-proxy-dev.seedbox.ph"){
         return proxy('http://localhost:9327')(req,res,next)
+    } else if (host == "standalone-proxy-staging.seedbox.ph"){
+        return proxy('http://localhost:9328')(req,res,next)
     }
 });
 
