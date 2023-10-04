@@ -2,15 +2,18 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const proxy = require('express-http-proxy');
+const GreenlockExpress =require("greenlock-express");
 app.use("/",(req,res,next)=>{
     const host = req.header('Host');
     if(host == 'upay-dev.seedbox.ph'){
         return proxy('http://localhost:9324')(req,res,next)
+    } else if (host == "standalone-proxy-dev.seedbox.ph"){
+        return proxy('http://localhost:9327')(req,res,next)
     }
 });
 
 
-require("greenlock-express")
+GreenlockExpress
     .init({
         packageRoot: __dirname,
         configDir: "./greenlock.d",
