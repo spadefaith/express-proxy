@@ -1,1 +1,4 @@
-{ "sites": [{ "subject": "upay-dev.seedbox.ph", "altnames": ["upay-dev.seedbox.ph"] }] }
+{ "sites": [
+    { "subject": "upay-dev.seedbox.ph", "altnames": ["upay-dev.seedbox.ph"] },
+    { "subject": "standalone-proxy-dev.seedbox.ph", "altnames": ["standalone-proxy-dev.seedbox.ph"] }
+    ] }
