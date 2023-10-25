@@ -5,17 +5,18 @@ const proxy = require('express-http-proxy');
 const GreenlockExpress =require("greenlock-express");
 app.use("/",(req,res,next)=>{
     const host = req.header('Host');
-    console.log(8,host);
+    // console.log(8,host);
     if(host == 'upay-dev.seedbox.ph'){
         return proxy('http://localhost:9324')(req,res,next)
+    } if(host == 'upay-staging.seedbox.ph'){
+        return proxy('http://localhost:9328')(req,res,next)
     } else if (host == "standalone-proxy-dev.seedbox.ph"){
         return proxy('http://localhost:9327')(req,res,next)
     } else if (host == "standalone-proxy-staging.seedbox.ph"){
-        console.log(14,host);
+        // console.log(14,host);
         return proxy('http://localhost:9328')(req,res,next)
     }
 });
-
 
 GreenlockExpress
     .init({
@@ -26,7 +27,7 @@ GreenlockExpress
         maintainerEmail: "cedrick.campoto@seedbox.ph",
  
         // whether or not to run at cloudscale
-        cluster: true
+        cluster: false
     })
     // Serves on 80 and 443
     // Get's SSL certificates magically!
