@@ -15,6 +15,12 @@ app.use("/",(req,res,next)=>{
     } else if (host == "standalone-proxy-staging.seedbox.ph"){
         // console.log(14,host);
         return proxy('http://localhost:9328')(req,res,next)
+    } else if (host == "finance-service-dev.seedbox.ph"){
+        // console.log(14,host);
+        return proxy('http://localhost:9331')(req,res,next)
+    } else if (host == "finance-service-staging.seedbox.ph"){
+        // console.log(14,host);
+        return proxy('http://localhost:9332')(req,res,next)
     }
 });
 
